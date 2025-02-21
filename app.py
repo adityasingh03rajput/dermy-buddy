@@ -1,7 +1,7 @@
 ## app.py (Frontend)
 import streamlit as st
 from PIL import Image
-import model  # Importing the backend
+import backend  # Importing the backend
 
 def main():
     st.set_page_config(page_title="AI Dermatologist", layout="wide")
@@ -23,18 +23,18 @@ def main():
     if image:
         st.image(image, caption="Selected Image", use_column_width=True)
         st.write("🔍 Analyzing image...")
-        predicted_class, confidence = model.predict_skin_disease(image)
+        predicted_class, confidence = backend.predict_skin_disease(image)
         
         if predicted_class is not None:
             st.subheader("🩺 Diagnosis:")
-            st.success(f"Predicted Skin Condition: {model.disease_classes[predicted_class]}")
+            st.success(f"Predicted Skin Condition: {backend.disease_classes[predicted_class]}")
             st.progress(confidence / 100)
             st.write(f"Confidence Level: {confidence:.2f}%")
             
-            if model.disease_classes[predicted_class] == "Healthy Skin":
+            if backend.disease_classes[predicted_class] == "Healthy Skin":
                 st.balloons()
                 st.success("Your skin appears to be healthy! Keep up with good skincare practices.")
-            elif model.disease_classes[predicted_class] in ["Cuts", "Burns"]:
+            elif backend.disease_classes[predicted_class] in ["Cuts", "Burns"]:
                 st.warning("This condition may require first aid or medical attention. Please take necessary precautions.")
         else:
             st.error("An error occurred while processing the image.")
@@ -42,7 +42,7 @@ def main():
 if __name__ == "__main__":
     main()
 
-## model.py (Backend)
+## backend.py (Backend)
 import torch
 import torchvision.transforms as transforms
 import timm
