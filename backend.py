@@ -5,15 +5,11 @@ from PIL import Image
 import cv2
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-import os
 from ultralytics import YOLO  # Import YOLOv8
 
-# Define the path to the custom YOLOv8 model
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "yolov8_body_parts.pt")
-
-# Load YOLOv8 for object detection (body part detection)
+# Load pre-trained YOLOv8 model for object detection (body part detection)
 try:
-    yolo_model = YOLO(MODEL_PATH)  # Load custom YOLOv8 model
+    yolo_model = YOLO("yolov8n.pt")  # Pre-trained YOLOv8 nano model
 except Exception as e:
     raise Exception(f"Failed to load YOLOv8 model: {str(e)}")
 
@@ -70,7 +66,7 @@ def predict_skin_disease(image):
         return None, str(e)
 
 def detect_body_part(image):
-    """Detects the body part in the image using custom-trained YOLOv8."""
+    """Detects the body part in the image using pre-trained YOLOv8."""
     try:
         # Convert PIL image to OpenCV format
         image_cv = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
