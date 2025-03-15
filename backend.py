@@ -5,9 +5,17 @@ from PIL import Image
 import cv2
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+import os
+from ultralytics import YOLO  # Import YOLOv8
 
-# Load custom-trained YOLOv5 model for body part detection
-yolo_model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/yolov5_body_parts.pt')
+# Define the path to the custom YOLOv8 model
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "yolov8_body_parts.pt")
+
+# Load YOLOv8 for object detection (body part detection)
+try:
+    yolo_model = YOLO(MODEL_PATH)  # Load custom YOLOv8 model
+except Exception as e:
+    raise Exception(f"Failed to load YOLOv8 model: {str(e)}")
 
 # Load the pre-trained ConvNeXt model for disease classification
 disease_model = timm.create_model("convnext_large", pretrained=True, num_classes=15)
@@ -62,22 +70,25 @@ def predict_skin_disease(image):
         return None, str(e)
 
 def detect_body_part(image):
-    """Detects the body part in the image using custom-trained YOLOv5."""
+    """Detects the body part in the image using custom-trained YOLOv8."""
     try:
         # Convert PIL image to OpenCV format
         image_cv = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
         
-        # Run YOLOv5 inference
+        # Run YOLOv8 inference
         results = yolo_model(image_cv)
         
         # Extract detected objects
-        detections = results.pandas().xyxy[0]
+        detections = results[0].boxes.data.cpu().numpy()
+        names = results[0].names
         
         # Filter for body parts (e.g., hand, arm, face)
         body_parts = []
-        for _, row in detections.iterrows():
-            if row['name'] in ['hand', 'arm', 'face', 'leg']:  # Add more body parts as needed
-                body_parts.append(row['name'])
+        for detection in detections:
+            class_id = int(detection[5])
+            class_name = names[class_id]
+            if class_name in ['hand', 'arm', 'face', 'leg']:  # Add more body parts as needed
+                body_parts.append(class_name)
         
         return body_parts[0] if body_parts else "Unknown"
     except Exception as e:
