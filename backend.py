@@ -38,11 +38,6 @@ feature_transform = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
-# Load a dataset of skin images (for image matching)
-# Replace with your dataset path
-dataset_images = []  # List of PIL images
-dataset_features = []  # List of feature vectors
-
 def preprocess_image(image, transform):
     """Preprocesses the image for model input."""
     return transform(image).unsqueeze(0)
