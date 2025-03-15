@@ -2,7 +2,7 @@ torch
 torchvision
 timm
 streamlit
-opencv-python
+opencv-python-headless
 scikit-learn
 ultralytics
 Pillow
