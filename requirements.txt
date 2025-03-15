@@ -1,6 +1,9 @@
-streamlit  
-torch  
-torchvision  
-timm  
-pillow  
-numpy 
+torch
+torchvision
+timm
+streamlit
+opencv-python
+scikit-learn
+ultralytics
+Pillow
+numpy
