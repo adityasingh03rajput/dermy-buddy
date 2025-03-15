@@ -6,8 +6,8 @@ import cv2
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Load YOLOv5 for object detection (body part detection)
-yolo_model = torch.hub.load('ultralytics/yolov5', 'yolov5s')  # Load YOLOv5 small model
+# Load custom-trained YOLOv5 model for body part detection
+yolo_model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/yolov5_body_parts.pt')
 
 # Load the pre-trained ConvNeXt model for disease classification
 disease_model = timm.create_model("convnext_large", pretrained=True, num_classes=15)
@@ -62,7 +62,7 @@ def predict_skin_disease(image):
         return None, str(e)
 
 def detect_body_part(image):
-    """Detects the body part in the image using YOLOv5."""
+    """Detects the body part in the image using custom-trained YOLOv5."""
     try:
         # Convert PIL image to OpenCV format
         image_cv = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
