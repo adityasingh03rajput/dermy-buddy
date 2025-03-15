@@ -22,6 +22,12 @@ def main():
     if image:
         st.image(image, caption="Selected Image", use_column_width=True)
         st.write("🔍 Analyzing image...")
+        
+        # Detect body part
+        body_part = backend.detect_body_part(image)
+        st.write(f"Detected Body Part: {body_part}")
+        
+        # Predict skin disease
         predicted_class, confidence = backend.predict_skin_disease(image)
         
         if predicted_class is not None:
@@ -35,6 +41,14 @@ def main():
                 st.success("Your skin appears to be healthy! Keep up with good skincare practices.")
             elif backend.disease_classes[predicted_class] in ["Cuts", "Burns"]:
                 st.warning("This condition may require first aid or medical attention. Please take necessary precautions.")
+            
+            # Find similar images
+            similar_image, similarity = backend.find_similar_images(image)
+            if similar_image:
+                st.subheader("🔍 Similar Image Found:")
+                st.image(similar_image, caption=f"Similarity: {similarity:.2f}", use_column_width=True)
+            else:
+                st.write("No similar images found in the dataset.")
         else:
             st.error("An error occurred while processing the image.")
 
