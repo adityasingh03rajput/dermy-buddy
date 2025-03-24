@@ -1,71 +1,276 @@
 {
-    "conditions": [
-        {
-            "name": "Melanoma",
-            "description": "The most serious type of skin cancer that develops in melanocytes.",
-            "symptoms": "New spot or existing mole that changes in size, shape, color, irregular borders, itching, bleeding",
-            "treatments": [
-                "Surgical excision",
-                "Immunotherapy",
-                "Targeted therapy",
-                "Radiation therapy",
-                "Regular skin checks"
-            ],
-            "keywords": ["skin cancer", "dangerous mole", "malignant"],
-            "red_flags": [
-                "Rapidly changing mole",
-                "Bleeding mole",
-                "Painful lesion"
-            ]
-        },
-        {
-            "name": "Eczema",
-            "description": "A condition that makes skin red and itchy, often chronic with flare-ups.",
-            "symptoms": "Dry skin, intense itching, red/brown patches, small raised bumps, thickened skin",
-            "treatments": [
-                "Moisturizers",
-                "Topical corticosteroids",
-                "Antihistamines",
-                "Immunosuppressants",
-                "Light therapy",
-                "Avoiding triggers"
-            ],
-            "keywords": ["atopic dermatitis", "itchy skin", "dry patches"],
-            "red_flags": [
-                "Widespread infection",
-                "Weeping sores",
-                "No response to treatment"
-            ]
-        }
-    ],
-    "general_advice": {
-        "daily_care": [
-            "Use gentle, fragrance-free cleansers",
-            "Apply moisturizer within 3 minutes of bathing",
-            "Wear sunscreen daily (SPF 30+)",
-            "Avoid hot showers",
-            "Pat skin dry instead of rubbing"
-        ],
-        "emergency": [
-            "Difficulty breathing with skin symptoms → Call emergency services",
-            "Rapid spreading rash with fever → Seek immediate care",
-            "Severe blistering or skin peeling → Emergency department"
+    "metadata": {
+        "version": "2.3",
+        "last_updated": "2023-11-15",
+        "sources": [
+            "American Academy of Dermatology",
+            "NIH Skin Disease Database",
+            "WHO Dermatology Guidelines"
         ]
     },
-    "diagnostic_tools": {
-        "ABCDE_of_moles": {
-            "A": "Asymmetry",
-            "B": "Border irregularity",
-            "C": "Color variation",
-            "D": "Diameter >6mm",
-            "E": "Evolving/changing"
+    "conditions": [
+        {
+            "name": "Acne Vulgaris",
+            "medical_name": "Acne Vulgaris",
+            "description": "A chronic inflammatory skin condition affecting hair follicles and sebaceous glands, most common in adolescents but can persist into adulthood.",
+            "symptoms": [
+                "Comedones (blackheads/whiteheads)",
+                "Inflammatory papules and pustules",
+                "Nodules and cysts in severe cases",
+                "Oily skin (seborrhea)",
+                "Post-inflammatory hyperpigmentation"
+            ],
+            "causes": [
+                "Excess sebum production",
+                "Follicular hyperkeratinization",
+                "Cutibacterium acnes proliferation",
+                "Hormonal influences",
+                "Genetic predisposition"
+            ],
+            "treatments": {
+                "topical": [
+                    "Retinoids (tretinoin, adapalene)",
+                    "Benzoyl peroxide 2.5-10%",
+                    "Topical antibiotics (clindamycin)",
+                    "Azelaic acid 15-20%"
+                ],
+                "oral": [
+                    "Antibiotics (doxycycline, minocycline)",
+                    "Oral contraceptives (for hormonal acne)",
+                    "Isotretinoin for severe cystic acne"
+                ],
+                "procedures": [
+                    "Chemical peels",
+                    "Light/laser therapy",
+                    "Comedone extraction"
+                ]
+            },
+            "prevention": [
+                "Gentle cleansing twice daily",
+                "Non-comedogenic moisturizers",
+                "Avoid picking/scrubbing lesions",
+                "Regular pillowcase changes"
+            ],
+            "red_flags": [
+                "Severe nodulocystic acne",
+                "Acne fulminans (with systemic symptoms)",
+                "Significant scarring",
+                "No improvement after 12 weeks of treatment"
+            ],
+            "conversation_patterns": {
+                "diagnosis_questions": [
+                    "How long have you had these breakouts?",
+                    "Do the lesions leave scars?",
+                    "Have you noticed any triggers?",
+                    "What treatments have you tried before?"
+                ],
+                "treatment_explanations": [
+                    "Retinoids work by normalizing skin cell turnover - expect some initial dryness",
+                    "Benzoyl peroxide kills acne bacteria but may bleach fabrics",
+                    "Oral antibiotics typically show improvement in 4-8 weeks"
+                ],
+                "reassurance": [
+                    "Acne is very common and treatable - let's find the right approach for you",
+                    "Many effective options exist, even for stubborn acne"
+                ]
+            },
+            "keywords": [
+                "pimples",
+                "zits",
+                "breakouts",
+                "blackheads",
+                "whiteheads",
+                "cystic acne"
+            ],
+            "icd11": "ED80"
         },
-        "rash_assessment": [
-            "Location/distribution",
-            "Color/texture",
-            "Duration/progression",
-            "Associated symptoms",
-            "Triggers/exposures"
+        {
+            "name": "Atopic Dermatitis",
+            "medical_name": "Atopic Eczema",
+            "description": "Chronic, relapsing inflammatory skin disease characterized by intense pruritus and eczematous lesions, often associated with personal/family history of atopy.",
+            "symptoms": [
+                "Pruritus (often worse at night)",
+                "Erythematous papules and plaques",
+                "Lichenification in chronic cases",
+                "Xerosis (dry skin)",
+                "Common locations: flexural surfaces, face (especially in children)"
+            ],
+            "causes": [
+                "Filaggrin gene mutations",
+                "Skin barrier dysfunction",
+                "Immune dysregulation",
+                "Environmental triggers",
+                "Microbiome alterations"
+            ],
+            "treatments": {
+                "topical": [
+                    "Low-mid potency corticosteroids",
+                    "Calcineurin inhibitors (tacrolimus, pimecrolimus)",
+                    "Crisaborole 2% ointment",
+                    "Wet wrap therapy"
+                ],
+                "systemic": [
+                    "Dupilumab (biologic)",
+                    "JAK inhibitors",
+                    "Cyclosporine for severe cases"
+                ],
+                "supportive": [
+                    "Fragrance-free emollients",
+                    "Bleach baths for secondary infection",
+                    "Cotton clothing"
+                ]
+            },
+            "prevention": [
+                "Daily moisturization",
+                "Trigger avoidance (irritants, allergens)",
+                "Stress management",
+                "Humidification in dry climates"
+            ],
+            "red_flags": [
+                "Eczema herpeticum (HSV superinfection)",
+                "Erythroderma",
+                "Failure to thrive in infants",
+                "Ocular complications"
+            ],
+            "conversation_patterns": {
+                "diagnosis_questions": [
+                    "When did the itching first begin?",
+                    "Does anyone in your family have allergies or asthma?",
+                    "What makes the itching better or worse?",
+                    "Have you noticed any patterns with seasons/environments?"
+                ],
+                "treatment_explanations": [
+                    "Topical steroids should be applied in a thin layer - we'll discuss the right potency for your case",
+                    "Moisturizers work best when applied to damp skin within 3 minutes after bathing",
+                    "Biologics like dupilumab target specific immune pathways with good safety profiles"
+                ],
+                "reassurance": [
+                    "While eczema can't be cured, most cases can be well-controlled",
+                    "Many children outgrow eczema as they get older"
+                ]
+            },
+            "keywords": [
+                "eczema",
+                "itchy skin",
+                "dry patches",
+                "dermatitis",
+                "skin allergy"
+            ],
+            "icd11": "EA80"
+        }
+    ],
+    "diagnostic_tools": {
+        "ABCDE_of_melanoma": {
+            "description": "Mnemonic for assessing pigmented lesions for melanoma risk",
+            "criteria": {
+                "A": "Asymmetry (one half doesn't match the other)",
+                "B": "Border irregularity (ragged, notched, blurred)",
+                "C": "Color variation (shades of brown/black, red, white, blue)",
+                "D": "Diameter >6mm (though melanomas can be smaller)",
+                "E": "Evolving (changing in size, shape, color, symptoms)"
+            },
+            "conversation_flows": {
+                "patient_education": [
+                    "When checking moles, remember your ABCDEs - would you like me to explain any letter in more detail?",
+                    "A changing mole deserves professional evaluation - when did you first notice this change?"
+                ],
+                "clinical_pearls": [
+                    "The 'ugly duckling' sign (a lesion that looks different from others) can be more telling than ABCDE alone",
+                    "Palmar/plantar/subungual melanomas often present differently than conventional ABCDE patterns"
+                ]
+            }
+        },
+        "SCORAD_index": {
+            "description": "Clinical tool for assessing atopic dermatitis severity",
+            "components": [
+                "Extent (body surface area affected)",
+                "Intensity (erythema, edema, excoriation, etc.)",
+                "Subjective symptoms (pruritus, sleep loss)"
+            ]
+        }
+    },
+    "conversation_framework": {
+        "greetings": [
+            "Hello! I'm here to help with your skin concerns. How can I assist you today?",
+            "Welcome to dermatology consultation. What brings you in today?",
+            "Good day! Please describe your skin concern in your own words."
+        ],
+        "history_taking": {
+            "onset": [
+                "When did you first notice this condition?",
+                "How long has this been bothering you?"
+            ],
+            "progression": [
+                "Has it been getting better, worse, or staying the same?",
+                "What changes have you observed over time?"
+            ],
+            "symptoms": [
+                "What symptoms are you experiencing? (itch, pain, burning, etc.)",
+                "How would you describe the discomfort?"
+            ],
+            "treatments": [
+                "Have you tried any treatments or home remedies?",
+                "What medications are you currently using for this?"
+            ],
+            "triggers": [
+                "Does anything seem to make it better or worse?",
+                "Have you noticed any patterns related to activities/environment?"
+            ]
+        },
+        "response_templates": {
+            "diagnosis": [
+                "Based on what you're describing, this sounds consistent with {condition}. The key features are {features}.",
+                "Your symptoms of {symptoms} suggest {condition}. Would you like me to explain more about this diagnosis?"
+            ],
+            "treatment": [
+                "For {condition}, we typically recommend {treatment}. This works by {mechanism}.",
+                "The first-line approach for {condition} includes {treatment}. Important considerations are {key_points}."
+            ],
+            "reassurance": [
+                "I understand this is concerning, but {condition} is very manageable with proper care.",
+                "Many patients with similar concerns find relief with {treatment_options}."
+            ],
+            "referral": [
+                "Given {red_flag}, I strongly recommend seeing a dermatologist promptly.",
+                "This appears to be beyond self-care - when could you schedule an appointment?"
+            ]
+        },
+        "closing": [
+            "Do you have any other skin concerns to discuss?",
+            "Would you like me to summarize our discussion?",
+            "Remember to follow up if symptoms persist beyond {timeframe}."
+        ]
+    },
+    "patient_education": {
+        "topics": [
+            {
+                "name": "Sun Protection",
+                "content": [
+                    "Use broad-spectrum SPF 30+ sunscreen daily",
+                    "Apply 1 oz (shot glass amount) for full body coverage",
+                    "Reapply every 2 hours or after swimming/sweating",
+                    "Seek shade during peak UV hours (10am-4pm)",
+                    "Wear UPF-rated clothing and wide-brimmed hats"
+                ],
+                "conversation_hooks": [
+                    "Many people underapply sunscreen - how much do you typically use?",
+                    "Did you know UV rays penetrate clouds? Even cloudy days require protection."
+                ]
+            },
+            {
+                "name": "Skin Self-Exams",
+                "content": [
+                    "Perform monthly full-body skin checks",
+                    "Use mirrors for hard-to-see areas",
+                    "Document suspicious lesions with photos",
+                    "Pay special attention to sun-exposed areas",
+                    "Don't forget nails, palms, and soles"
+                ],
+                "conversation_hooks": [
+                    "When was your last thorough skin exam?",
+                    "Would you like me to walk you through the self-check process?"
+                ]
+            }
         ]
     }
 }
