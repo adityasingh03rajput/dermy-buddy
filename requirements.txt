@@ -7,3 +7,4 @@ scikit-learn
 ultralytics
 Pillow
 numpy
+streamlit-chat
